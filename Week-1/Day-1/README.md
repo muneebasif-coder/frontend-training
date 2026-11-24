@@ -185,6 +185,37 @@ A slow TTFB is usually a slow backend (heavy DB queries, nothing cached), a serv
 
 ---
 
+## DevTools exercise
+
+Tried this on github.com (home page, logged in) with DevTools docked on the right.
+
+### Network tab, before reload
+
+![Network tab before reload](screenshots/01-network-before-reload.png)
+
+I opened DevTools after the page had already loaded, so only 5 requests showed up: `rum?ddforward=...` (Datadog RUM, 202) and `collect` (GitHub's analytics, 204 No Content). These are just background beacons, nothing to do with rendering the page. Network tab only records while it's open, so to see the real page load you have to reload with it open.
+
+### Network tab, hard reload with cache disabled
+
+![Network tab after hard reload](screenshots/02-network-hard-reload.png)
+
+Ticked **Disable cache** and did a hard reload (`Cmd+Shift+R`), no throttling:
+
+- **293 requests** for one page
+- **4.3 MB transferred vs 13.9 MB resources.** The gap is compression (gzip/brotli). Transferred is what came over the wire, resources is the size after decoding.
+- **DOMContentLoaded: 2.52s**
+- **Finish: 11.87s.** This isn't a load metric, it's just when the last request finished. Analytics pings that keep firing later push it out.
+- In the overview most of the bars sit between ~2s and 6s, then a few small ones around 10 to 12s, which are those late beacons.
+- The **Initiator** column was the useful one for me. JS chunks like `chunk-4228-...js` come from `module_chunk_loader` (code splitting, loaded when needed), one stylesheet was injected by JS (`css_loading`), and the RUM calls go through `fetch-patch.ts`.
+
+### Performance trace
+
+![Performance panel recording](screenshots/03-performance-recording.png)
+
+Used **Record and reload** in the Performance panel. This is while it was still recording: it reloads the page, waits for the load event plus 5s more, then stops on its own. At 7.4s it was still on "Waiting for load event (+5s)", so on this page the load event fires late because of how many requests there are.
+
+---
+
 ## Self check answers
 
 **1. What happens when you type a URL and press enter?**
