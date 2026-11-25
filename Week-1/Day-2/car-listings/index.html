@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Used Cars for Sale | CarSpot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to listings</a>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">CarSpot</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Buy</a></li>
+        <li><a href="#">Sell</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h1>Used cars for sale</h1>
+
+    <div class="layout">
+      <!-- filters -->
+      <form class="filters" id="filterForm" aria-labelledby="filter-heading">
+        <h2 id="filter-heading">Filter cars</h2>
+
+        <div class="field">
+          <label for="make">Make</label>
+          <select id="make" name="make">
+            <option value="">All makes</option>
+            <option value="honda">Honda</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="kia">Kia</option>
+            <option value="mazda">Mazda</option>
+            <option value="suzuki">Suzuki</option>
+            <option value="toyota">Toyota</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="maxPrice">Max price ($)</label>
+          <input type="number" id="maxPrice" name="maxPrice" min="0" step="500" placeholder="e.g. 15000">
+        </div>
+
+        <fieldset>
+          <legend>Transmission</legend>
+          <div class="radio">
+            <input type="radio" id="trans-any" name="transmission" value="any" checked>
+            <label for="trans-any">Any</label>
+          </div>
+          <div class="radio">
+            <input type="radio" id="trans-auto" name="transmission" value="automatic">
+            <label for="trans-auto">Automatic</label>
+          </div>
+          <div class="radio">
+            <input type="radio" id="trans-manual" name="transmission" value="manual">
+            <label for="trans-manual">Manual</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="yearFrom">Year from</label>
+          <select id="yearFrom" name="yearFrom">
+            <option value="">Any year</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+          </select>
+        </div>
+
+        <div class="buttons">
+          <button type="submit">Apply filters</button>
+          <button type="reset">Clear</button>
+        </div>
+      </form>
+
+      <!-- results -->
+      <section class="results" aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <p id="result-count" aria-live="polite">Showing all 8 cars</p>
+
+        <ul class="car-grid">
+          <li>
+            <article class="car-card" data-make="toyota" data-price="18500" data-transmission="automatic" data-year="2020">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Toyota Corolla Altis</a></h3>
+                <p class="price">$18,500</p>
+                <ul class="specs">
+                  <li>2020</li>
+                  <li>42,000 km</li>
+                  <li>Automatic</li>
+                  <li>Petrol</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="car-card" data-make="honda" data-price="17200" data-transmission="automatic" data-year="2019">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Honda Civic EX</a></h3>
+                <p class="price">$17,200</p>
+                <ul class="specs">
+                  <li>2019</li>
+                  <li>55,000 km</li>
+                  <li>Automatic</li>
+                  <li>Petrol</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="car-card" data-make="suzuki" data-price="9800" data-transmission="manual" data-year="2021">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Suzuki Swift GL</a></h3>
+                <p class="price">$9,800</p>
+                <ul class="specs">
+                  <li>2021</li>
+                  <li>23,000 km</li>
+                  <li>Manual</li>
+                  <li>Petrol</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="car-card" data-make="hyundai" data-price="26900" data-transmission="automatic" data-year="2022">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Hyundai Tucson</a></h3>
+                <p class="price">$26,900</p>
+                <ul class="specs">
+                  <li>2022</li>
+                  <li>18,500 km</li>
+                  <li>Automatic</li>
+                  <li>Petrol</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="car-card" data-make="kia" data-price="22300" data-transmission="automatic" data-year="2020">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Kia Sportage</a></h3>
+                <p class="price">$22,300</p>
+                <ul class="specs">
+                  <li>2020</li>
+                  <li>61,000 km</li>
+                  <li>Automatic</li>
+                  <li>Diesel</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="car-card" data-make="toyota" data-price="10500" data-transmission="manual" data-year="2018">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Toyota Yaris</a></h3>
+                <p class="price">$10,500</p>
+                <ul class="specs">
+                  <li>2018</li>
+                  <li>74,000 km</li>
+                  <li>Manual</li>
+                  <li>Petrol</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="car-card" data-make="honda" data-price="8900" data-transmission="manual" data-year="2017">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Honda City</a></h3>
+                <p class="price">$8,900</p>
+                <ul class="specs">
+                  <li>2017</li>
+                  <li>89,000 km</li>
+                  <li>Manual</li>
+                  <li>Petrol</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="car-card" data-make="mazda" data-price="19900" data-transmission="automatic" data-year="2021">
+              <img src="img/car.svg" alt="" width="320" height="180">
+              <div class="car-info">
+                <h3><a href="#">Mazda 3</a></h3>
+                <p class="price">$19,900</p>
+                <ul class="specs">
+                  <li>2021</li>
+                  <li>30,200 km</li>
+                  <li>Automatic</li>
+                  <li>Petrol</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 CarSpot. Training project, not a real site.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
