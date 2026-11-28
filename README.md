@@ -7,4 +7,3 @@ Each day has its own folder (`Week-N/Day-N`) with a `README.md` covering what I 
 | Week | Day | Topic |
 |---|---|---|
 | 1 | [Day 1](Week-1/Day-1/README.md) | How the web and the browser work |
-| 1 | [Day 2](Week-1/Day-2/README.md) | Accessible car listings page (semantic HTML, forms, Lighthouse, keyboard + screen reader) |
